@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy,:set_user_event]
 
   # GET /events
   # GET /events.json
@@ -19,6 +19,10 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+  end
+
+  def set_user_event
+    @event.set_user_confirmation(@current_user)
   end
 
   # POST /events
@@ -48,7 +52,7 @@ class EventsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
-    end
+    endset_user_event
   end
 
   # DELETE /events/1

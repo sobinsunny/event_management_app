@@ -1,7 +1,14 @@
 class User < ApplicationRecord
 	 attr_accessor :password
-	 validates :email, :name, presence: true
+	 
+	 has_many :events,through: :user_events
+
+
+	 validates :email, presence: true
      validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+     enum gender: [:male,:female]
+
+
 
   def has_password?(password)
     password_hash == BCrypt::Engine.hash_secret(password, password_salt)

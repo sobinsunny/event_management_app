@@ -1,0 +1,21 @@
+
+<%= link_to "New Event",new_event_path %>
+<%@events.each do |event|%>
+	<p>
+	<%= event.titile%>
+	</p>
+	<p>
+	<%= event.event_place%>
+	</p>
+	<p>
+	<%= event.amount %>
+	</p>
+	<p>
+	<%=event.event_date%>
+	</p>
+	<p>
+
+   <%= link_to "attending",set_user_event_event_path(event), method: :post, class: 'attending ', :remote => true %>
+   <div id ="not_attending" class = "glyphicon-remove" > Ok iam attending</div>
+   </p>
+<%end%>
