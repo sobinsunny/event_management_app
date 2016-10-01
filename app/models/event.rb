@@ -6,7 +6,7 @@ class Event < ApplicationRecord
  
 
 	def set_user_confirmation(user)
-		self.create(user_id:user.id)
+		self.user_events.create(user_id:user.id)
 	end
 
 

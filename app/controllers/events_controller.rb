@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def set_user_event
-    @event.set_user_confirmation(@current_user)
+    @event.set_user_confirmation(current_user)
   end
 
   # POST /events
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
-    endset_user_event
+    end
   end
 
   # DELETE /events/1
