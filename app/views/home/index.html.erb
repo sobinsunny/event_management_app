@@ -1,0 +1,15 @@
+<div class="list-group">
+	<%= link_to 'New Event', new_event_path ,:class=>"btn btn-info"%>
+	<%@events.each do |event|%>
+	<div class="well">
+		<h2 class="list-group-item-heading">
+			<%= link_to event.titile,event_path(event)%>
+		</h2>
+		<p class="list-group-item-text">
+			<%if signed_in?%>
+				<%= confirmation_link(event) %>
+			<%end%>
+		</p>
+	</div>
+	<%end%>
+</div>

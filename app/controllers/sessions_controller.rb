@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user_sign_in.save
       set_user_session
       flash[:success] = 'Successfully Logined'
-      redirect_to users_path
+      redirect_to root_path
     else
       flash[:error] = 'Error in login'
       render :new
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
 
   def destroy
     @current_user = session[:user_id] = nil
-    redirect_to new_session_path
+    flash[:error] = 'Successfully Logout'
+    redirect_to login_path
   end
 
   private

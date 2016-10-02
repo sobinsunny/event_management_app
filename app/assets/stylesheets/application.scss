@@ -15,3 +15,27 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+.icon-time{
+ 	background-image: image-url("glyphicons-halflings.png") !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 14px;
+
+}
+.icon-calendar{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-top: 1px;
+	*margin-right: .3em;
+	line-height: 14px;
+	vertical-align: text-top;
+	background-image: image-url("glyphicons-halflings.png")!important;
+	background-position: 14px 14px;
+	background-repeat: no-repeat;
+}

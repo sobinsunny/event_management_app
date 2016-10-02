@@ -1,15 +1,18 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy,:set_user_event]
+  before_action :authenticate_user
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :set_user_event, :remove_user_event]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.active
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    redirect_to :back unless @event.is_expired?
+    @event.users
   end
 
   # GET /events/new
@@ -21,8 +24,21 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def remove_user_event
+    user_event.destroy
+    flash[:success] = 'Registration canceled'
+    redirect_to root_path
+  end
+
   def set_user_event
-    @event.set_user_confirmation(current_user)
+    user_event = build_user_event
+    if user_event.save
+      flash[:success] = 'Successfully Confirmed'
+    else
+      flash[:error] = 'Error in login'
+    end
+    puts '-----------------'
+    redirect_to root_path
   end
 
   # POST /events
@@ -66,13 +82,22 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:titile, :event_place, :amount, :event_date)
-    end
+  def build_user_event
+    @event.user_events.new(user_id: current_user.id)
+  end
+
+  def user_event
+    @event.user_events.find_by_user_id(current_user.id)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:titile, :event_place, :amount, :event_date)
+  end
 end

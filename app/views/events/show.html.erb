@@ -1,24 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titile:</strong>
-  <%= @event.titile %>
-</p>
 
-<p>
-  <strong>Event place:</strong>
-  <%= @event.event_place %>
-</p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @event.amount %>
-</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1> <%= @event.titile %></h1>
+    <h3>  On : <%= @event.event_date.strftime("%a , %I:%M - %F") %></h3>
+    <h4>Entry Fee : <%=pernalized_amount(@event.amount)%></h4>
+    <p class="lead"> Location : <%= @event.event_place %></p>
+    <%if signed_in?%>
+    <%= confirmation_link(@event) %>
+    <%end%>       
+  </div>
+</div>
 
-<p>
-  <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
+<h3>Available Memebers</h3>
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@event.users.each do |user| %>
+    <tr>
+      <td><%=user.name%></td>
+      <td><%=user.gender%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

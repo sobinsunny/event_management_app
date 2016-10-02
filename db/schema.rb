@@ -10,33 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001052941) do
-
-  create_table "events", force: :cascade do |t|
-    t.string   "titile"
-    t.text     "event_place"
-    t.integer  "amount"
-    t.datetime "event_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+ActiveRecord::Schema.define(version: 20_161_001_052_941) do
+  create_table 'events', force: :cascade do |t|
+    t.string   'titile'
+    t.text     'event_place'
+    t.integer  'amount'
+    t.datetime 'event_date'
+    t.datetime 'created_at',  null: false
+    t.datetime 'updated_at',  null: false
   end
 
-  create_table "user_events", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_user_events_on_event_id"
-    t.index ["user_id"], name: "index_user_events_on_user_id"
+  create_table 'user_events', force: :cascade do |t|
+    t.integer  'event_id'
+    t.integer  'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['event_id'], name: 'index_user_events_on_event_id'
+    t.index ['user_id'], name: 'index_user_events_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.integer  "gender"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table 'users', force: :cascade do |t|
+    t.string   'name'
+    t.string   'email'
+    t.string   'password_hash'
+    t.string   'password_salt'
+    t.integer  'gender'
+    t.datetime 'created_at',    null: false
+    t.datetime 'updated_at',    null: false
   end
-
 end

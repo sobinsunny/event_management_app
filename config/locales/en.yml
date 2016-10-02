@@ -22,5 +22,5 @@
 en:
   hello: "Hello world"
   gender_lists:
-      "0": Male
-      "1": Female
+      0 : Male
+      1 : Female
