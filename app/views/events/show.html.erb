@@ -3,17 +3,17 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1> <%= @event.titile %></h1>
+    <h1> <%= @event.title %></h1>
     <h3>  On : <%= @event.event_date.strftime("%a , %I:%M - %F") %></h3>
-    <h4>Entry Fee : <%=pernalized_amount(@event.amount)%></h4>
-    <p class="lead"> Location : <%= @event.event_place %></p>
+    <h4>Entry Fee : <%=personalized_entry_fee(@event.entry_fee)%></h4>
+    <p class="lead"> Location : <%= @event.location %></p>
     <%if signed_in?%>
     <%= confirmation_link(@event) %>
     <%end%>       
   </div>
 </div>
 
-<h3>Available Memebers</h3>
+<h3>Registered Memebers</h3>
 <table class="table table-striped" >
   <thead>
     <tr>

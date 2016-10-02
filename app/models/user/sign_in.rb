@@ -1,5 +1,5 @@
 class User::SignIn < ActiveType::Object
-  # Handling signin activity
+  # Handling User signin
   attribute :email, :string
   attribute :password, :string
   validate  :existance_of_user

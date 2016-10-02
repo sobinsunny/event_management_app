@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, :name, presence: true
   validate
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-  enum gender: [:male, :female]
+  enum gender: [:Male, :Female]
 
   def has_password?(password)
     password_hash == BCrypt::Engine.hash_secret(password, password_salt)

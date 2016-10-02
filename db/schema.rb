@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20_161_001_052_941) do
   create_table 'events', force: :cascade do |t|
-    t.string   'titile'
-    t.text     'event_place'
-    t.integer  'amount'
+    t.string   'title'
+    t.text     'location'
+    t.integer  'entry_fee'
     t.datetime 'event_date'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
   create_table 'user_events', force: :cascade do |t|

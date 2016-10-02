@@ -1,21 +1,21 @@
  <div class="well">
 <%= form_for(event) do |f| %>
 <div class="form-group">
-  <%= f.label :titile %>
-  <%= f.text_field :titile,:class=>'form-control input-md' %>
-  <%= error_message f,:titile%>
+  <%= f.label :title %>
+  <%= f.text_field :title,:class=>'form-control input-md' %>
+  <%= error_message f,:title%>
 </div>
 
 <div class="form-group">
-  <%= f.label :event_place %>
-  <%= f.text_area :event_place,:class=>'form-control input-md'%>
-  <%= error_message f,:event_place%>
+  <%= f.label :location %>
+  <%= f.text_area :location,:class=>'form-control input-md'%>
+  <%= error_message f,:location%>
 </div>
 
 <div class="form-group">
-  <%= f.label :amount %>
-  <%= f.text_field :amount,:class=>'form-control input-md'%>
-  <%= error_message f,:amount%>
+  <%= f.label :entry_fee %>
+  <%= f.text_field :entry_fee,:class=>'form-control input-md'%>
+  <%= error_message f,:entry_fee%>
 </div>
 
 <div class="form-group">
@@ -24,6 +24,7 @@
       <%=f.text_field :event_date,:data=>{:format=>"dd/MM/yyyy hh:mm:ss"}%>
       <span class="add-on">
         <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+        <b>&#x2685;</b>
         </i>
       </span>
     </div>

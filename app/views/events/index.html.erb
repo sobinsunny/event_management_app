@@ -16,9 +16,9 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.titile %></td>
-        <td><%= event.event_place %></td>
-        <td><%= event.amount %></td>
+        <td><%= event.title %></td>
+        <td><%= event.location %></td>
+        <td><%= event.entry_fee %></td>
         <td><%= event.event_date %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
