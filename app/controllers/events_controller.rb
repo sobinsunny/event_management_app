@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user
-  before_action :set_event, only: [:show, :edit, :update, :destroy,:set_user_event, :remove_user_event]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :set_user_event, :remove_user_event]
 
   def index
     @events = Event.active

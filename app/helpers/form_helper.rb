@@ -1,5 +1,5 @@
 module FormHelper
-#custom error message
+  # custom error message
   def error_message(form, feild)
     if form.object.errors[feild].present?
       error_messsage =  form.object.errors[feild].try(:first).to_s

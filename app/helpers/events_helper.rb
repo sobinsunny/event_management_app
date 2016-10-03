@@ -1,7 +1,6 @@
 module EventsHelper
-
   def personalized_entry_fee(amount)
-    return amount if current_user.gender == 'Male' 
+    return amount if current_user.gender == 'Male'
     amount - amount * 0.05 # female has 5% discount
   end
 
@@ -16,5 +15,4 @@ module EventsHelper
   def has_confirmed(event)
     event.user_events.find_by_user_id(current_user.id)
   end
-
 end
