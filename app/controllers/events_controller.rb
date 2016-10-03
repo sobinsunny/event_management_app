@@ -20,14 +20,14 @@ class EventsController < ApplicationController
 
   def remove_user_event
     user_event.destroy
-    flash[:success] = 'Registration canceled'
+    flash[:success] = 'Registration canceled.'
     redirect_to root_path
   end
 
   def set_user_event
     user_event = build_user_event
     if user_event.save
-      flash[:success] = 'Successfully Confirmed'
+      flash[:success] = 'Successfully Confirmed.'
     else
       flash[:error] = 'Error in login'
     end
