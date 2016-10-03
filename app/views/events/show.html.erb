@@ -12,26 +12,29 @@
     <%end%>       
   </div>
 </div>
-
-<h3>Registered Memebers</h3>
-<table class="table table-striped" >
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%@event.users.each do |user| %>
-    <tr>
-      <td><%=user.name%></td>
-      <td><%=user.gender%></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<h4>Registered Memebers</h4>
+<% if @event.users.present?%>
+  <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@event.users.each do |user| %>
+      <tr>
+        <td><%=user.name%></td>
+        <td><%=user.gender%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%else%>
+    No Members yet confirmed.
+  <%end%>
 </div>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', root_path %>

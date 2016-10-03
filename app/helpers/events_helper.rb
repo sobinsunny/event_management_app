@@ -7,7 +7,7 @@ module EventsHelper
 
   def confirmation_link(event)
     if has_confirmed(event)
-      link_to 'Not Attending', remove_user_event_event_path(event), method: :delete, class: 'btn btn-warning', html: { id: 'action_link' }
+      link_to 'Cancel', remove_user_event_event_path(event), method: :delete, class: 'btn btn-warning', html: { id: 'action_link' }
     else
       link_to 'Yes,I am in', set_user_event_event_path(event), method: :post, class: 'btn btn-success', html: { id: 'ajax_link' }
     end

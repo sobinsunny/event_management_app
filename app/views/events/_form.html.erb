@@ -20,14 +20,7 @@
 
 <div class="form-group">
   <%= f.label :event_date %>
-    <div id="datetimepicker1" class="input-append date">
-      <%=f.text_field :event_date,:data=>{:format=>"dd/MM/yyyy hh:mm:ss"}%>
-      <span class="add-on">
-        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-        <b>&#x2685;</b>
-        </i>
-      </span>
-    </div>
+  <%= f.datetime_select :event_date,ampm: true, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'} %>
   <%= error_message f,:event_date%>
 </div>
 
