@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
+  before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -24,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def build_user
     @user ||= User::SignUp.new(user_parameters)

@@ -1,26 +1,20 @@
 class EventsController < ApplicationController
   before_action :authenticate_user
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :set_user_event, :remove_user_event]
+  before_action :set_event, only: [:show, :edit, :update, :destroy,:set_user_event, :remove_user_event]
 
-  # GET /events
-  # GET /events.json
   def index
     @events = Event.active
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
     redirect_to :back unless @event.is_expired?
     @event.users
   end
 
-  # GET /events/new
   def new
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
   end
 
@@ -70,8 +64,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
     respond_to do |format|
@@ -90,12 +82,10 @@ class EventsController < ApplicationController
     @event.user_events.find_by_user_id(current_user.id)
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
     params.require(:event).permit(:title, :location, :entry_fee, :event_date)
   end

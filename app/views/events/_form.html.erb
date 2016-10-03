@@ -1,4 +1,4 @@
- <div class="well">
+<div class="well">
 <%= form_for(event) do |f| %>
 <div class="form-group">
   <%= f.label :title %>
@@ -20,7 +20,7 @@
 
 <div class="form-group">
   <%= f.label :event_date %>
-  <%= f.datetime_select :event_date,ampm: true,prompt: true, default: 5.days.from_now%>
+  <%= f.datetime_select :event_date,ampm: true,prompt: true,:order => [:hour, :minute, :day, :month, :year]%>
   <%= error_message f,:event_date%>
 </div>
 

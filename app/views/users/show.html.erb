@@ -1,2 +1,9 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<%if @user.present?%>
+	<div class="col-sm-6 col-md-8">
+	<h4><%=@user.name%></h4>
+		<p>
+			<%=@user.email%>
+			<%=@user.gender%>
+		</p>
+	</div>
+<%end%>
