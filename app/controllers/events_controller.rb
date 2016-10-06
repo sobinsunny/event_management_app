@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  location   :text
+#  entry_fee  :integer
+#  event_date :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class EventsController < ApplicationController
   before_action :authenticate_user
   before_action :set_event, only: [:show, :edit, :update, :destroy, :set_user_event, :remove_user_event]

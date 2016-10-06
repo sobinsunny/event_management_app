@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  location   :text
+#  entry_fee  :integer
+#  event_date :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 module EventsHelper
   def personalized_entry_fee(amount)
     return amount if current_user.gender == 'Male'
