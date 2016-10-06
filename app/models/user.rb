@@ -17,7 +17,6 @@ class User < ApplicationRecord
   has_many :user_events
   has_many :events, through: :user_events
   validates :email, :name, presence: true
-  validate
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   enum gender: [:Male, :Female]
 
